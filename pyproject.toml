@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "spark-delta-apache"
+version = "0.1.0"
+description = "Apache Spark com Delta Lake e Apache Iceberg"
+authors = [
+    "Gabriel Minatto <gabrielminattoguedin@outlook.com>",
+    "Anderson dos Santos",
+    "Lorenzo",
+]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pyspark = "3.5.3"
+delta-spark = "3.2.0"
+jupyterlab = ">=4.2.5"
+ipykernel = ">=6.29.5"
+mkdocs = ">=1.6.0"
+mkdocs-material = ">=9.5.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,34 @@
+version: "3.9"
+
+services:
+
+  jupyter:
+    build: .
+    container_name: spark-jupyter
+    ports:
+      - "8888:8888"   # JupyterLab
+      - "4040:4040"   # Spark UI
+    volumes:
+      - ./notebooks:/app/notebooks
+      - ./spark-warehouse:/app/spark-warehouse
+      - ./.ivy2:/root/.ivy2   # cache do JAR do Iceberg entre reinicializações
+    command: >
+      jupyter lab
+        --ip=0.0.0.0
+        --port=8888
+        --no-browser
+        --allow-root
+        --ServerApp.token=''
+        --ServerApp.password=''
+    restart: unless-stopped
+
+  mkdocs:
+    build: .
+    container_name: spark-mkdocs
+    ports:
+      - "8000:8000"   # MKDocs preview
+    volumes:
+      - ./docs:/app/docs
+      - ./mkdocs.yml:/app/mkdocs.yml
+    command: mkdocs serve --dev-addr=0.0.0.0:8000
+    restart: unless-stopped
