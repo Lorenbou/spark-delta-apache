@@ -8,6 +8,7 @@ authors = [
     "Lorenzo",
 ]
 readme = "README.md"
+packages = [{include = "spark_delta_apache", from = "src"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"

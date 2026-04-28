@@ -18,18 +18,21 @@ A documentação completa (MKDocs) está publicada em:
 
 ```
 spark-delta-apache/
+├── src/
+│   └── spark_delta_apache/    # Pacote Python com lógica reutilizável
+│       ├── __init__.py
+│       └── config.py          # Configurações centralizadas do Spark
 ├── notebooks/
 │   ├── delta_lake.ipynb       # Delta Lake: DDL + INSERT/UPDATE/DELETE + Time Travel
 │   └── apache_iceberg.ipynb   # Iceberg: DDL + INSERT/UPDATE/DELETE + Snapshots
-├── docs/
-│   ├── index.md               # Contextualização do projeto
-│   ├── spark.md               # Apache Spark / PySpark
-│   ├── delta.md               # Delta Lake
-│   └── iceberg.md             # Apache Iceberg
-├── Dockerfile                 # Imagem com Python 3.11 + Java 17 + dependências
-├── docker-compose.yml         # Serviços: jupyter (8888) e mkdocs (8000)
-├── pyproject.toml             # Dependências gerenciadas pelo Poetry
-├── mkdocs.yml                 # Configuração da documentação
+├── docs/                      # Fontes da documentação MKDocs
+├── data/                      # Estrutura Medallion (Bronze/Silver/Gold)
+├── tests/                     # Testes unitários (padrão Engenharia de Dados)
+├── scripts/                   # Scripts standalone / jobs batch
+├── Dockerfile                 # Imagem otimizada para Spark
+├── docker-compose.yml         # Orquestração dos serviços
+├── pyproject.toml             # Manifesto Poetry (pacote e dependências)
+├── mkdocs.yml                 # Configuração do site de documentação
 └── README.md
 ```
 

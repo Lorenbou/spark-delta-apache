@@ -30,6 +30,8 @@ Este cenário permite demonstrar operações DML de forma realista:
 
 ## Modelo Entidade-Relacionamento
 
+![Diagrama ER](assets/er_diagram.png)
+
 ```
 ┌──────────────┐         ┌──────────────┐
 │   CUSTOMER   │         │   PRODUCT    │

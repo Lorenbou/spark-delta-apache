@@ -1,5 +1,3 @@
-version: "3.9"
-
 services:
 
   jupyter:
@@ -9,9 +7,9 @@ services:
       - "8888:8888"   # JupyterLab
       - "4040:4040"   # Spark UI
     volumes:
-      - ./notebooks:/app/notebooks
-      - ./spark-warehouse:/app/spark-warehouse
-      - ./.ivy2:/root/.ivy2   # cache do JAR do Iceberg entre reinicializações
+      - .:/app        # Mapeia todo o projeto para acesso ao .git e pacotes
+      - ./.ivy2:/root/.ivy2
+      - ~/.ssh:/root/.ssh:ro
     command: >
       jupyter lab
         --ip=0.0.0.0
