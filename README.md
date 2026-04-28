@@ -1,6 +1,6 @@
 # spark-delta-apache
 
-Trabalho universitário da disciplina de **Arquitetura de Dados** demonstrando o uso de **Delta Lake** e **Apache Iceberg** com **Apache Spark (PySpark)**.
+Trabalho universitário da disciplina de **Estrutura de Dados** demonstrando o uso de **Delta Lake** e **Apache Iceberg** com **Apache Spark (PySpark)**.
 
 **Participantes:** Gabriel Minatto · Anderson dos Santos · Lorenzo
 
@@ -171,6 +171,19 @@ poetry run mkdocs serve
 # Publicar no GitHub Pages
 poetry run mkdocs gh-deploy
 ```
+
+---
+
+## Screenshots
+
+### JupyterLab com PySpark
+![JupyterLab](docs/assets/screenshot_jupyterlab.png)
+
+### Documentação MKDocs publicada
+![MKDocs](docs/assets/screenshot_mkdocs.png)
+
+### Modelo Entidade-Relacionamento
+![Diagrama ER](docs/assets/er_diagram.png)
 
 ---
 
