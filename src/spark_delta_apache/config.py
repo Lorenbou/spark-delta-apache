@@ -13,7 +13,8 @@ def get_spark_delta_session(app_name="DeltaLakeApp"):
         .config("spark.sql.extensions", "io.delta.sql.DeltaSparkSessionExtension")
         .config("spark.sql.catalog.spark_catalog", "org.apache.spark.sql.delta.catalog.DeltaCatalog")
         .config("spark.sql.warehouse.dir", "/app/spark-warehouse")
-        .config("spark.ui.showConsoleProgress", "false")
+        .config("spark.sql.debug.maxToStringFields", "1000")
+        .config("spark.driver.extraJavaOptions", "-Dlog4j2.configurationFile=file:/app/src/spark_delta_apache/log4j2.properties")
     )
     return configure_spark_with_delta_pip(builder).getOrCreate()
 
@@ -30,7 +31,8 @@ def get_spark_iceberg_session(app_name="IcebergApp"):
         .config("spark.sql.catalog.local", "org.apache.iceberg.spark.SparkCatalog")
         .config("spark.sql.catalog.local.type", "hadoop")
         .config("spark.sql.catalog.local.warehouse", "/app/spark-warehouse/iceberg")
-        .config("spark.ui.showConsoleProgress", "false")
+        .config("spark.sql.debug.maxToStringFields", "1000")
+        .config("spark.driver.extraJavaOptions", "-Dlog4j2.configurationFile=file:/app/src/spark_delta_apache/log4j2.properties")
         .getOrCreate()
     )
 
